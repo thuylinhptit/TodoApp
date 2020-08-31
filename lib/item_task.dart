@@ -7,7 +7,7 @@ import 'package:todoapp_flutter/todo_task.dart';
 class ItemTask extends StatelessWidget{
   final Task task;
 
-  const ItemTask({Key key, this.task}) : super(key: key);
+  const ItemTask({ this.task});
   @override
   Widget build(BuildContext context) {
     return Row(

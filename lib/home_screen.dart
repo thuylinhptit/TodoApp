@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:todoapp_flutter/list_task.dart';
+import 'package:todoapp_flutter/todo_task.dart';
 
 import 'add_task.dart';
 
@@ -27,10 +30,10 @@ class _HomeScreen extends State<HomeScreen>{
                   color: Colors.black, fontSize: 25
               ),),
             ),
-            body:  Center(
-              child: Text(
-              'HomeScreen'
-              )
+            body:  Consumer<TodoTask>(
+            builder: (context, model, _ ){
+              return ListTask(listTask: model.tasks,);
+            },
             ),
             floatingActionButton: Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 30, 20),
