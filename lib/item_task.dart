@@ -6,25 +6,37 @@ import 'package:todoapp_flutter/todo_task.dart';
 
 class ItemTask extends StatelessWidget{
   final Task task;
-
   const ItemTask({ this.task});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(15, 15, 0, 0),
+    return Container(
+      padding: EdgeInsets.all(10.0),
       child: Row(
         children: [
-          Text(
-              task.title, style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  task.title, style: TextStyle(color: Colors.indigo, fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'hello',  style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w300),
+                )
+              ],
+            ),
           ),
-          Checkbox(
-            value: task.isDone,
-            onChanged: (bool checked) {
-              Provider.of<TodoTask>(context, listen: false).toggleTodo(task);
-            },
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Checkbox(
+              value: task.isDone,
+              onChanged: (bool checked) {
+                Provider.of<TodoTask>(context, listen: false).toggleTodo(task);
+              },
+            ),
           ),
           Text(
-            '12.00 PM'
+            task.time,  style: TextStyle(color: Colors.lightBlue, fontSize: 15, fontWeight: FontWeight.bold),
           )
         ],
       ),
