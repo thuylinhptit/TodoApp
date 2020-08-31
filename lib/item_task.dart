@@ -10,26 +10,24 @@ class ItemTask extends StatelessWidget{
   const ItemTask({ this.task});
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-            task.title, style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        ListTile(
-          leading: Checkbox(
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(15, 15, 0, 0),
+      child: Row(
+        children: [
+          Text(
+              task.title, style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          Checkbox(
             value: task.isDone,
             onChanged: (bool checked) {
               Provider.of<TodoTask>(context, listen: false).toggleTodo(task);
             },
           ),
-          title: Text(
-            task.title, style: TextStyle( fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
-          ),
-        ),
-        Text(
-          '12.00 PM'
-        )
-      ],
+          Text(
+            '12.00 PM'
+          )
+        ],
+      ),
     );
   }
 

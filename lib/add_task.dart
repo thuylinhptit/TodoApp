@@ -13,7 +13,7 @@ class AddTask extends StatefulWidget{
 
 }
 class _AddTask extends State<AddTask>{
-  final controllor = TextEditingController();
+  final taskTextController = TextEditingController();
   bool statusDone = false;
   DateTime picker;
   TimeOfDay _time;
@@ -23,17 +23,16 @@ class _AddTask extends State<AddTask>{
     _time = TimeOfDay.now();
     super.initState();
     if( widget.task != null ){
-      controllor.text = widget.task.title;
+      taskTextController.text = widget.task.title;
     }
   }
   @override
   void dispose() {
-    controllor.dispose();
+    taskTextController.dispose();
     super.dispose();
   }
   @override
   Widget build(BuildContext context) {
-    var controller;
     return Scaffold(
       appBar: AppBar(
         title: Text('Create List', style: TextStyle(fontSize: 25, color: Colors.white),),
@@ -46,7 +45,7 @@ class _AddTask extends State<AddTask>{
           child: Column(
             children: [
               TextField(
-                controller: controller,
+                controller: taskTextController,
                 decoration: InputDecoration(
                   hintText: 'Add Todo',
                   hintStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w300, color: Colors.blue)
@@ -141,7 +140,9 @@ class _AddTask extends State<AddTask>{
   }
 
   void onSubmit(){
-    final String textTask = controllor.text;
+    print('Add');
+    final String textTask = taskTextController.text;
+    print('${taskTextController}');
     final bool isDone = statusDone;
     var todoProvider = Provider.of<TodoTask>(context, listen: false);
     if( textTask.isNotEmpty ){
@@ -150,6 +151,7 @@ class _AddTask extends State<AddTask>{
       Navigator.pop(context);
       print('Done Add');
     }
+    print('Notttt');
 
   }
 

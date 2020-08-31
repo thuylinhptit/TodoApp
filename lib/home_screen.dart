@@ -31,9 +31,9 @@ class _HomeScreen extends State<HomeScreen>{
               ),),
             ),
             body:  Consumer<TodoTask>(
-            builder: (context, model, _ ){
-              return ListTask(listTask: model.tasks,);
-            },
+              builder: (context, model, _ ){
+                return ListTask(listTask: model.tasks,);
+              },
             ),
             floatingActionButton: Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 30, 20),
