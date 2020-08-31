@@ -33,7 +33,7 @@ class _HomeScreen extends State<HomeScreen>{
               )
             ),
             floatingActionButton: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 30, 30),
+              padding: const EdgeInsets.fromLTRB(0, 0, 30, 20),
               child: FloatingActionButton(
                 child: Icon(Icons.create, color: Colors.white,),
                 backgroundColor: Colors.lightBlueAccent,
@@ -47,7 +47,7 @@ class _HomeScreen extends State<HomeScreen>{
           Padding(
             padding: EdgeInsets.fromLTRB(0, 60, 10, 0),
             child: Text(
-              '$formattedDate', style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
+              '$formattedDate', style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold,decoration:TextDecoration.none,),
             ),
           ),
         ],

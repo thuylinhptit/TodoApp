@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todoapp_flutter/task.dart';
+import 'package:todoapp_flutter/todo_task.dart';
 
 class ItemTask extends StatelessWidget{
   final Task task;
@@ -10,22 +12,14 @@ class ItemTask extends StatelessWidget{
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Column(
-          children: [
-            Text(
-                'Shopping'
-            ),
-            Text(
-                'Shopping'
-            )
-          ],
+        Text(
+            task.title, style: TextStyle( fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         ListTile(
           leading: Checkbox(
-
             value: task.isDone,
             onChanged: (bool checked) {
-            //  Provider.of<TodoTasks>(context, listen: false).toggleTodo(task);
+              Provider.of<TodoTask>(context, listen: false).toggleTodo(task);
             },
           ),
           title: Text(
