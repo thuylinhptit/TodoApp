@@ -14,7 +14,11 @@ class ListTask extends StatelessWidget{
   }
 
   List<Widget> getTask() {
-    return listTask.map((e) => ItemTask(task: e)).toList();
+    var indexCurrent = -1;
+    return listTask.map((e) {
+      indexCurrent += 1;
+      return ItemTask(task: e, index:  indexCurrent,);
+    }).toList();
   }
 
 }

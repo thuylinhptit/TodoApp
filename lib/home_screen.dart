@@ -21,19 +21,31 @@ class _HomeScreen extends State<HomeScreen>{
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       home: Stack(
         alignment: AlignmentDirectional.topEnd,
         children: [
           Scaffold(
             appBar: AppBar(
+              backgroundColor: Colors.lightBlueAccent,
               title: Text('To do', style:  TextStyle(
-                  color: Colors.black, fontSize: 25
+                  color: Colors.white, fontSize: 25
               ),),
             ),
-            body:  Consumer<TodoTask>(
-              builder: (context, model, _ ){
-                return ListTask(listTask: model.tasks,);
-              },
+            body:  Container(
+//              decoration: BoxDecoration(
+//                gradient: LinearGradient(
+//                  begin: Alignment.topRight,
+//                  end: Alignment.bottomLeft,
+//                  colors: [ Colors.white, Colors.lightBlueAccent],
+//                ),
+//              ),
+              child: Consumer<TodoTask>(
+                builder: (context, model, _ ){
+
+                  return ListTask(listTask: model.tasks,);
+                },
+              ),
             ),
             floatingActionButton: Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 30, 20),

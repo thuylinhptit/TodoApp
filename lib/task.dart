@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Task {
   String title;
- // String content;
+  String content;
   bool isDone;
   String time;
-  Task({@required this.title, this.isDone, this.time});
+  Color color;
+  Task({@required this.title, @required this.content, @required this.isDone, @required this.time, @required this.color});
 
   void toggleTodoCompleted(){
     isDone = !isDone;
